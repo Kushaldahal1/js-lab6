@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Javascript</script></title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, Arial, Helvetica, sans-serif; text-align: center; margin-top: 100px; }
+    </style>
+</head>
+<body>
+     <!-- task 1-->
+
+    <h1>Button click counter</h1>
+    <p>button count: <span id="counter">0</span></p>
+    <button onclick="incrementCounter()">Press here</button>
+    
+    <!---->
+    <script>
+        let counter = 0;
+
+        function incrementCounter() {
+            counter++;
+            document.getElementById('counter').textContent = counter;
+        }
+
+        
+    </script>
+
+
+ <!-- task 2-->
+
+ <body>
+
+    <h1>Last Key Pressed</h1>
+    <p id="info">Press any key...</p>
+
+    <script>
+        document.addEventListener('keydown', function(event) {
+            const info = document.getElementById('info');
+            info.textContent = `Key Code: ${event.keyCode}, Key Value: ${event.key}`;
+        });
+    </script>
+
+
+
+
+<style>
+    body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+    form { display: inline-block; }
+    input { display: block; margin-bottom: 10px; padding: 8px; width: 200px; }
+    .error { color: red; }
+</style>
+</head>
+<body>
+
+    
+
+<h1>Login Form</h1>
+<form id="loginForm">
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button type="submit">Submit</button>
+</form>
+
+<p id="error" class="error"></p>
+
+<script>
+    const form = document.getElementById('loginForm');
+    const error = document.getElementById('error');
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        
+        if (username.length < 5) {
+            error.textContent = 'Username must be at least 5 characters long.';
+        } else if (password.length < 8) {
+            error.textContent = 'Password must be at least 8 characters long.';
+        } else {
+            error.textContent = '';
+            alert('Form submitted successfully!');
+            // You can add the form submission logic here
+        }
+    });
+</script>
+</body>
+</html>
